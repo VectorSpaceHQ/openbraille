@@ -1,21 +1,32 @@
 base_length = 2.34;
 base_width = 2.34;
-base_lr_border = 0.2;
-base_tb_border = 0.44;
+base_lr_border = 3.1;
+base_tb_border = 5;
 
-cavity_length = 1;
+cavity_length = 2.34;
 cavity_width = 1.45;
+
+pin_radius = .72;
+pin_diameter = 1.44;
+
+rod_width = 0.2;
 
 // Cell Body
 difference(){
-    cube([9.98, 16.12, 10]);
+    // cell
+    cube([10+2.34*2, 6.2+2.34, 5]);
 
     dx = 2.34;
     for (j=[0:2]){
         for (i = [0:1]){
-        translate([1.8+dx*i+2*i, 4.55+.7*j+dx*j, 5])
-            cube([2.3, 2.3, 5]);
+        translate([5-.72+dx*j, base_lr_border-.72+dx*i+.1*i, 2])
+            cube([cavity_width, cavity_length, 5]);
         }
     }
+    
+    translate([0,base_lr_border+pin_radius,0])
+    cube([20,rod_width,2]);
+    translate([0,base_lr_border+pin_radius+cavity_length,0])
+    cube([20,rod_width,2]);
 }
 
