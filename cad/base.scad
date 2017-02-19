@@ -1,7 +1,8 @@
+ncols = 1;
+nlines = 1;
+
 base_length = 2.34;
 base_width = 2.34;
-ncols = 2;
-nlines = 2;
 
 base_lr_border = 3.1;
 base_tb_border = 5;
@@ -33,7 +34,7 @@ difference(){
     // cell
     cube([cell_length, cell_width, 2]);
 
-    dx = 2.34;
+    dx = base_length;
     for (j=[0:2]){
         for (i = [0:1]){
         translate([5-.72+dx*j, base_lr_border-.72+dx*i+.1*i, .5])
@@ -43,16 +44,25 @@ difference(){
     
     // defensive slots, x-dir
     translate([0,base_lr_border+pin_radius,0])
-    cube([20,rod_width,1]);
+    cube([20,rod_width,.5]);
     translate([0,base_lr_border+pin_radius+cavity_length,0])
-    cube([20,rod_width,1]);
+    cube([20,rod_width,.5]);
     
     // attacking slots, y-dir
     translate([5 , 0, 0])
-    cube([rod_width, 20, 1]);
+    cube([rod_width, 20, .5]);
     translate([5+ cavity_length , 0, 0])
-    cube([rod_width, 20, 1]);
+    cube([rod_width, 20, .5]);
     translate([5+ cavity_length * 2 , 0, 0])
-    cube([rod_width, 20, 1]);
+    cube([rod_width, 20, .5]);
 }
+
+
+    dx = base_length;
+    for (j=[0:2]){
+        for (i = [0:1]){
+        translate([xoffset+5+dx*j, yoffset + .01 +base_lr_border-.72+dx*i+.1*i, .5])
+            cube([cavity_width/2, cavity_length/2, 1.5]);
+        }
+    }
 }
