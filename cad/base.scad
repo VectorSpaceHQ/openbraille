@@ -39,13 +39,18 @@ difference(){
         for (i = [0:1]){
         translate([5-.72+dx*j, base_lr_border-.72+dx*i+.1*i, .5])
             cube([cavity_width, cavity_length, 2]);
+                   
+        // spring retainer
+        translate([base_tb_border/2 + cavity_length + dx*j,        base_lr_border/2 + cavity_length + dx*i + .1*i, 1.2])
+        rotate([0,90,0])
+        cylinder(1, d=.4, $fn=40);
         }
     }
     
     // defensive slots, x-dir
     translate([0,.25+base_lr_border+pin_radius,0])
     cube([20,rod_width,.5]);
-    translate([0,.25+base_lr_border+pin_radius+cavity_length,0])
+    translate([0,.1+.25+base_lr_border+pin_radius+cavity_length,0])
     cube([20,rod_width,.5]);
     
     // attacking slots, y-dir
@@ -55,6 +60,8 @@ difference(){
     cube([rod_width, 20, .5]);
     translate([4.5+ cavity_length * 2 , 0, 0])
     cube([rod_width, 20, .5]);
+
+
 }
 
 
