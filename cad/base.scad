@@ -43,17 +43,17 @@ difference(){
     }
     
     // defensive slots, x-dir
-    translate([0,base_lr_border+pin_radius,0])
+    translate([0,.25+base_lr_border+pin_radius,0])
     cube([20,rod_width,.5]);
-    translate([0,base_lr_border+pin_radius+cavity_length,0])
+    translate([0,.25+base_lr_border+pin_radius+cavity_length,0])
     cube([20,rod_width,.5]);
     
     // attacking slots, y-dir
-    translate([5 , 0, 0])
+    translate([4.5 , 0, 0])
     cube([rod_width, 20, .5]);
-    translate([5+ cavity_length , 0, 0])
+    translate([4.5+ cavity_length , 0, 0])
     cube([rod_width, 20, .5]);
-    translate([5+ cavity_length * 2 , 0, 0])
+    translate([4.5+ cavity_length * 2 , 0, 0])
     cube([rod_width, 20, .5]);
 }
 
