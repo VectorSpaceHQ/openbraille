@@ -8,14 +8,20 @@ cavity_width = 1.45;
 
 // Cell Body
 difference(){
-    cube([9.98, 16.12, 10]);
+    cube([9.98, 16.12, 0.5]);
 
     dx = 2.34;
     for (j=[0:2]){
         for (i = [0:1]){
-        translate([1.8+dx*i+2*i, 4.55+.7*j+dx*j, 5])
+        translate([1.8+dx*i+2*i, 4.55+.7*j+dx*j, 0])
             cube([2.3, 2.3, 5]);
         }
     }
+   
+    // slots for rods
+    translate([2.5,0,0])
+    cube([0.35, 20, .35]);
+    translate([7,0,0])
+    cube([0.35, 20, .35]);
 }
 
